@@ -1,0 +1,26 @@
+h4 {
+   margin-top: 25px;
+   text-align: center;
+   margin-bottom: 25px;
+}
+
+.day-title {
+    color: blue;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+#leftmost-card {
+    margin-left: 120px;
+}
+
+#rightmost-card {
+margin-right: 120px;
+}
+
+.orange-bkgd {
+    background-color: orange;
+}
+.violent-bdkgd {
+    background-color: violet;
+}
