@@ -8,6 +8,7 @@ $(document).ready(function() {
 
   $("#search-button").on("click", function() {
     var searchValue = $("#search-value").val();
+    $(".forecast-hide").removeClass("forecast-hide");
 
     // clear input box
     $("#search-value").val("");
@@ -45,7 +46,7 @@ $(document).ready(function() {
           url: "http://api.openweathermap.org/data/2.5/uvi?appid=cf7168c08936eb9f9173f6d58fd1943e&lat=" + latitude + "&lon=" + longitude,
           dataType: "json",
           success: function (data) {
-            console.log(data.value);
+            // $(".forecast-hide").removeClass("forecast-hide");
             var card = $("<div>").addClass("card")
             var cardBody = $("<div>").addClass("card-body")
             var uvHeader = $("<h4>").addClass("card-header")
@@ -300,6 +301,7 @@ function searchWeather(searchValue) {
 
         // clear any old content
         $("#today").empty();
+        $("#uv").empty();
 
         // create html content for current weather
         var title = $("<h3>").addClass("card-title").text(data.name + " (" + new Date().toLocaleDateString() + ")");
