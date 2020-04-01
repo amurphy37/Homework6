@@ -121,17 +121,31 @@ $(document).ready(function() {
          // Find day of the week for today and set headers for each forecast days relative to this. 
          var day;
          var today = new Date().getDay();
+         console.log(today);
          var day1 = today+1;
          var day2 = today+2;
          var day3 = today+3;
          var day4 = today+4;
          var day5 = today+5;
          var days = [day1, day2, day3, day4, day5];
+         var correctDays = []
+         for (i=0; i<days.length; i++) {
+           var dayNumber = days[i]
+           if (days[i] > 6) {
+             correctDays.push(dayNumber - 7);
+           }
+           else {
+             correctDays.push(dayNumber)
+           }
+        
+
+         }
+         console.log(correctDays);
          var writtenDay = []
          
-        for (i=0; i<days.length; i++) {
+        for (i=0; i<correctDays.length; i++) {
 
-         switch (days[i]) {
+         switch (correctDays[i]) {
            case 0: 
             day = "Sunday";
             break;
