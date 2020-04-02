@@ -30,7 +30,7 @@ $(document).ready(function() {
   function getForecast(searchValue) {
     $.ajax({
       type: "GET",
-      url: "http://api.openweathermap.org/data/2.5/forecast?q=" + searchValue + apiKey,
+      url: "https://api.openweathermap.org/data/2.5/forecast?q=" + searchValue + apiKey,
       dataType: "json",
       success: function (data) {
         // console.log(data);
@@ -38,11 +38,11 @@ $(document).ready(function() {
         // Getting UV Index
         var latitude = data.city.coord.lat;
         var longitude = data.city.coord.lon;
-        var URL = "http://api.openweathermap.org/data/2.5/uvi?appid=cf7168c08936eb9f9173f6d58fd1943e&lat=" + latitude + "&lon=" + longitude;
+        var URL = "https://api.openweathermap.org/data/2.5/uvi?appid=cf7168c08936eb9f9173f6d58fd1943e&lat=" + latitude + "&lon=" + longitude;
 
         $.ajax({
           type: "GET",
-          url: "http://api.openweathermap.org/data/2.5/uvi?appid=cf7168c08936eb9f9173f6d58fd1943e&lat=" + latitude + "&lon=" + longitude,
+          url: "https://api.openweathermap.org/data/2.5/uvi?appid=cf7168c08936eb9f9173f6d58fd1943e&lat=" + latitude + "&lon=" + longitude,
           dataType: "json",
           success: function (data) {
             // $(".forecast-hide").removeClass("forecast-hide");
@@ -192,28 +192,28 @@ $(document).ready(function() {
               var earlyMornWind = $("<p>").addClass("card-text").text("Wind Speed: " + data.list[earlyMorn[i]]["wind"]["speed"] + " MPH");
               var earlyMornHumid = $("<p>").addClass("card-text").text("Humidity: " + data.list[earlyMorn[i]]["main"]["humidity"] + "%");
               var earlyMornTemp = $("<p>").addClass("card-text").text("Temperature: " + data.list[earlyMorn[i]]["main"]["temp"] + " °F");
-              var earlyMornImg = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[earlyMorn[i]]["weather"][0]["icon"] + ".png");
+              var earlyMornImg = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[earlyMorn[i]]["weather"][0]["icon"] + ".png");
               earlyMornEl.append(earlyMornHeader, earlyMornTemp, earlyMornWind, earlyMornHumid, earlyMornImg);
               var morningEl = $("<div>");
               var mornHeader = $("<h5>").text("Morning: ")
               var mornWind = $("<p>").addClass("card-text").text("Wind Speed: " + data.list[morning[i]]["wind"]["speed"] + " MPH");
               var mornHumid = $("<p>").addClass("card-text").text("Humidity: " + data.list[morning[i]]["main"]["humidity"] + "%");
               var mornTemp = $("<p>").addClass("card-text").text("Temperature: " + data.list[morning[i]]["main"]["temp"] + " °F");
-              var mornImg = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[morning[i]]["weather"][0]["icon"] + ".png");
+              var mornImg = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[morning[i]]["weather"][0]["icon"] + ".png");
               morningEl.append(mornHeader, mornTemp, mornWind, mornHumid, mornImg);
               var afternoonEl = $("<div>");
               var aftHeader = $("<h5>").text("Afternoon: ")
               var aftWind = $("<p>").addClass("card-text").text("Wind Speed: " + data.list[afternoon[i]]["wind"]["speed"] + " MPH");
               var aftHumid = $("<p>").addClass("card-text").text("Humidity: " + data.list[afternoon[i]]["main"]["humidity"] + "%");
               var aftTemp = $("<p>").addClass("card-text").text("Temperature: " + data.list[afternoon[i]]["main"]["temp"] + " °F");
-              var aftImg = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[afternoon[i]]["weather"][0]["icon"] + ".png");
+              var aftImg = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[afternoon[i]]["weather"][0]["icon"] + ".png");
               afternoonEl.append(aftHeader, aftTemp, aftWind, aftHumid, aftImg);
               var eveningEl = $("<div>");
               var eveHeader = $("<h5>").text("Evening: ")
               var eveWind = $("<p>").addClass("card-text").text("Wind Speed: " + data.list[evening[i]]["wind"]["speed"] + " MPH");
               var eveHumid = $("<p>").addClass("card-text").text("Humidity: " + data.list[evening[i]]["main"]["humidity"] + "%");
               var eveTemp = $("<p>").addClass("card-text").text("Temperature: " + data.list[evening[i]]["main"]["temp"] + " °F");
-              var eveImg = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[evening[i]]["weather"][0]["icon"] + ".png");
+              var eveImg = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[evening[i]]["weather"][0]["icon"] + ".png");
               eveningEl.append(eveHeader, eveTemp, eveWind, eveHumid, eveImg);
               // Creating string for id based on iteration value
               var idString = "#day-" + i
@@ -228,21 +228,21 @@ $(document).ready(function() {
               var earlyMornWind = $("<p>").addClass("card-text").text("Wind Speed: " + data.list[earlyMorn[i]]["wind"]["speed"] + " MPH");
               var earlyMornHumid = $("<p>").addClass("card-text").text("Humidity: " + data.list[earlyMorn[i]]["main"]["humidity"] + "%");
               var earlyMornTemp = $("<p>").addClass("card-text").text("Temperature: " + data.list[earlyMorn[i]]["main"]["temp"] + " °F");
-              var earlyMornImg = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[earlyMorn[i]]["weather"][0]["icon"] + ".png");
+              var earlyMornImg = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[earlyMorn[i]]["weather"][0]["icon"] + ".png");
               earlyMornEl.append(earlyMornHeader, earlyMornTemp, earlyMornWind, earlyMornHumid, earlyMornImg);
               var morningEl = $("<div>");
               var mornHeader = $("<h5>").text("Morning: ")
               var mornWind = $("<p>").addClass("card-text").text("Wind Speed: " + data.list[morning[i]]["wind"]["speed"] + " MPH");
               var mornHumid = $("<p>").addClass("card-text").text("Humidity: " + data.list[morning[i]]["main"]["humidity"] + "%");
               var mornTemp = $("<p>").addClass("card-text").text("Temperature: " + data.list[morning[i]]["main"]["temp"] + " °F");
-              var mornImg = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[morning[i]]["weather"][0]["icon"] + ".png");
+              var mornImg = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[morning[i]]["weather"][0]["icon"] + ".png");
               morningEl.append(mornHeader, mornTemp, mornWind, mornHumid, mornImg);
               var afternoonEl = $("<div>");
               var aftHeader = $("<h5>").text("Afternoon: ")
               var aftWind = $("<p>").addClass("card-text").text("Wind Speed: " + data.list[afternoon[i]]["wind"]["speed"] + " MPH");
               var aftHumid = $("<p>").addClass("card-text").text("Humidity: " + data.list[afternoon[i]]["main"]["humidity"] + "%");
               var aftTemp = $("<p>").addClass("card-text").text("Temperature: " + data.list[afternoon[i]]["main"]["temp"] + " °F");
-              var aftImg = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[afternoon[i]]["weather"][0]["icon"] + ".png");
+              var aftImg = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[afternoon[i]]["weather"][0]["icon"] + ".png");
               afternoonEl.append(aftHeader, aftTemp, aftWind, aftHumid, aftImg);
               // Creating string for id based on iteration value
               var idString = "#day-" + i
@@ -257,14 +257,14 @@ $(document).ready(function() {
               var earlyMornWind = $("<p>").addClass("card-text").text("Wind Speed: " + data.list[earlyMorn[i]]["wind"]["speed"] + " MPH");
               var earlyMornHumid = $("<p>").addClass("card-text").text("Humidity: " + data.list[earlyMorn[i]]["main"]["humidity"] + "%");
               var earlyMornTemp = $("<p>").addClass("card-text").text("Temperature: " + data.list[earlyMorn[i]]["main"]["temp"] + " °F");
-              var earlyMornImg = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[earlyMorn[i]]["weather"][0]["icon"] + ".png");
+              var earlyMornImg = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[earlyMorn[i]]["weather"][0]["icon"] + ".png");
               earlyMornEl.append(earlyMornHeader, earlyMornTemp, earlyMornWind, earlyMornHumid, earlyMornImg);
               var morningEl = $("<div>");
               var mornHeader = $("<h5>").text("Morning: ")
               var mornWind = $("<p>").addClass("card-text").text("Wind Speed: " + data.list[morning[i]]["wind"]["speed"] + " MPH");
               var mornHumid = $("<p>").addClass("card-text").text("Humidity: " + data.list[morning[i]]["main"]["humidity"] + "%");
               var mornTemp = $("<p>").addClass("card-text").text("Temperature: " + data.list[morning[i]]["main"]["temp"] + " °F");
-              var mornImg = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[morning[i]]["weather"][0]["icon"] + ".png");
+              var mornImg = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[morning[i]]["weather"][0]["icon"] + ".png");
               morningEl.append(mornHeader, mornTemp, mornWind, mornHumid, mornImg);
               // Creating string for id based on iteration value
               var idString = "#day-" + i
@@ -279,7 +279,7 @@ $(document).ready(function() {
               var earlyMornWind = $("<p>").addClass("card-text").text("Wind Speed: " + data.list[earlyMorn[i]]["wind"]["speed"] + " MPH");
               var earlyMornHumid = $("<p>").addClass("card-text").text("Humidity: " + data.list[earlyMorn[i]]["main"]["humidity"] + "%");
               var earlyMornTemp = $("<p>").addClass("card-text").text("Temperature: " + data.list[earlyMorn[i]]["main"]["temp"] + " °F");
-              var earlyMornImg = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[earlyMorn[i]]["weather"][0]["icon"] + ".png");
+              var earlyMornImg = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[earlyMorn[i]]["weather"][0]["icon"] + ".png");
               earlyMornEl.append(earlyMornHeader, earlyMornTemp, earlyMornWind, earlyMornHumid, earlyMornImg);
               // Creating string for id based on iteration value
               var idString = "#day-" + i
@@ -295,7 +295,7 @@ $(document).ready(function() {
 function searchWeather(searchValue) {
     $.ajax({
       type: "GET",
-      url: "http://api.openweathermap.org/data/2.5/weather?q=" + searchValue + apiKey,
+      url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + apiKey,
       dataType: "json",
       success: function(data) {
         // console.log(data);
@@ -324,7 +324,7 @@ function searchWeather(searchValue) {
         var humid = $("<p>").addClass("card-text").text("Humidity: " + data.main.humidity + "%");
         var temp = $("<p>").addClass("card-text").text("Temperature: " + data.main.temp + " °F");
         var cardBody = $("<div>").addClass("card-body");
-        var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+        var img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
 
         // merge and add to page
         title.append(img);
