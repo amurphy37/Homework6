@@ -39,7 +39,6 @@ $(document).ready(function() {
         var latitude = data.city.coord.lat;
         var longitude = data.city.coord.lon;
         var URL = "http://api.openweathermap.org/data/2.5/uvi?appid=cf7168c08936eb9f9173f6d58fd1943e&lat=" + latitude + "&lon=" + longitude;
-        console.log(URL);
 
         $.ajax({
           type: "GET",
@@ -52,26 +51,29 @@ $(document).ready(function() {
             var uvHeader = $("<h4>").addClass("card-header")
             uvHeader.text("UV Index")
             var uvIndex = $("<p>").text("UV Index: " + data.value);
+            console.log(data.value);
+            var IndexVal = 1*(data.value)
+            console.log(IndexVal);
 
-            if (data.value <=2) {
-              card.addClass("bg-success");
+            $("#uv").append(card);
+            card.append(cardBody);
+            cardBody.append(uvHeader, uvIndex); 
+            
+            if (IndexVal <= 2) {
+              card.addClass("bg-success")
             }
-            else if (2 < data.value <= 5) {
-              card.addClass("bg-warning");  
+            else if(2 < IndexVal <= 5) {
+              card.addClass("bg-warning")
             }
-            else if (5 < data.value <= 7) {
-              card.addClass("orange-bkgd")
+            else if(5< IndexVal <= 7) {
+              card.addClass("bg-warning")
             }
-            else if(7 < data.value <= 10) {
-              card.addClass("bg-danger");
+            else if(7< IndexVal <= 10) {
+              card.addClass("bg-danger")
             }
             else {
-              card.addClass("violent-bdkgd");
+              card.addClass("bg-violet")
             }
-           
-           $("#uv").append(card); 
-           card.append(cardBody);
-           cardBody.append(uvHeader, uvIndex); 
         }
 
 
@@ -121,7 +123,6 @@ $(document).ready(function() {
          // Find day of the week for today and set headers for each forecast days relative to this. 
          var day;
          var today = new Date().getDay();
-         console.log(today);
          var day1 = today+1;
          var day2 = today+2;
          var day3 = today+3;
@@ -140,7 +141,6 @@ $(document).ready(function() {
         
 
          }
-         console.log(correctDays);
          var writtenDay = []
          
         for (i=0; i<correctDays.length; i++) {
